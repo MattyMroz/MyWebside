@@ -1,0 +1,394 @@
+/* =============== FONTS =============== */
+@font-face {
+    font-family: 'Myriad Web Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Web Pro'), url('../fonts/Myriad\ Web\ Pro.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'MyriadWebPro-Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('MyriadWebPro-Bold'), url('../fonts/MyriadWebPro-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'MyriadWebPro-CondensedItalic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('MyriadWebPro-CondensedItalic'), url('../fonts/MyriadWebPro-CondensedItalic.woff') format('woff');
+}
+
+
+/* =============== VARIABLES CSS =============== */
+:root {
+    --header-height: 3rem;
+
+    /* ========== Colors ========== */
+    --first-color: hsl(253, 65%, 52%);
+    --first-color-alt: hsl(253, 69%, 28%);
+
+    --secound-color: hsl(219, 100%, 50%);
+    --secound-color-alt: hsl(219, 100%, 33%);
+
+    --title-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-light: hsl(0, 0%, 0%);
+
+    --body-color: hsl(0, 0%, 0%);
+    --container-color: hsl(0, 0%, 0%);
+
+    --border: .1rem solid rgba(255, 255, 255, .3);
+
+    --white: hsl(0, 0%, 100%);
+
+    /* ========== Font and typography ========== */
+    --normal-font: 'Myriad Web Pro', sans-serif;
+    --bold-font: 'MyriadWebPro-Bold', sans-serif;
+    --italic-font: 'MyriadWebPro-CondensedItalic', sans-serif;
+
+    --biggest-font-size: 3rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --normal-font-size: 1.25rem;
+    --small-font-size: 1;
+    --smaller-font-size: .938rem;
+    --tiny-font-size: .813rem;
+
+    /* ========== Font weight ========== .75rem*/
+    /* --font-medium: 500;
+    --font-bold: 600; */
+
+    /* ========== z index ========== */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* =============== BASE =============== */
+*:not([class*="burger"]) {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+/* ========== SCROLLBAR ========== */
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--white);
+    border-radius: 5rem;
+}
+
+body {
+    background-color: var(--body-color);
+    /* Tymczasowo */
+    color: var(--text-color);
+    font-family: var(--normal-font);
+    font-size: var(--normal-font-size);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--title-color);
+    font-family: var(--bold-font);
+}
+
+
+/* ul {
+
+}
+
+a {
+
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input {
+    border: none;
+    font-family: var(--normal-font);
+    font-size: var(--normal-font-size);
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}
+
+.main {
+    overflow-x: hidden;
+} */
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+/* =============== HEADER AND NAVBAR =============== */
+.header {
+    background: var(--body-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    height: 6.5rem;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav__logo {
+    font-size: var(--h1-font-size);
+    font-family: var(--bold-font);
+    color: var(--white);
+    width: 15rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: inline-block;
+}
+
+.navbar ul li a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--white);
+    position: relative;
+}
+
+.easter__egg {
+    height: 0px;
+    width: 0px;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--first-color);
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--first-color);
+}
+
+.navbar ul li a:hover {
+    color: var(--first-color);
+    transition: all 0.6s;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .header .navbar ul li a:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}
+
+.th-btn {
+    cursor: pointer;
+    font-size: 1.6rem;
+
+}
+
+.btns__1 {
+    display: none;
+}
+
+.btns__2 {
+    width: 15rem;
+    direction: rtl;
+}
+
+
+/* =============== HAMBURGER =============== */
+.burger {
+    z-index: 3;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: none;
+}
+
+#burger-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.burger-svg__bars {
+    fill: var(--white);
+}
+
+.burger:hover {
+    cursor: pointer;
+}
+
+.isNavOpen {
+    overflow: hidden;
+}
+
+
+
+/* =============== BREAKPOINTS =============== */
+
+/* @media screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 767px) {}
+
+@media screen and (min-width: 576px) {}
+
+@media screen and (max-width: 320px) {} */
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 4rem 2rem;
+    }
+
+    .nav__logo {
+        padding: 0 2rem;
+    }
+
+    .th-btn {
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width:768px) {
+    .nav__logo {
+        padding: 0;
+        z-index: 1000;
+    }
+
+    .th-btn {
+        font-size: 2rem;
+    }
+
+    .btns__2 {
+        display: none;
+    }
+
+    .navbar::-webkit-scrollbar {
+        background: transparent;
+    }
+
+    .navbar {
+        position: absolute;
+        top: -1000%;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 3rem 2rem 3.5rem;
+        background-color: var(--body-color);
+        transition: all 0.6s;
+        overflow: auto;
+        /* display: none; */
+    }
+    .navbar.active {
+        top: 99%;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li a {
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2.5rem;
+    }
+
+    .btns__1 {
+        display: inline-block;
+        padding: 2rem 2rem 0 2rem;
+        margin-bottom: 8rem;
+    }
+
+    .burger {
+        display: inline-block;
+    }
+
+
+    /* .home {
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content h3 {
+        font-size: 4.5rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
+    } */
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+}
