@@ -1,10 +1,8 @@
 // =============== HAMBURGER MENU ===============
 $(function () {
-
-    let navbar = document.querySelector('.navbar');
+    var navbar = document.querySelector('.navbar');
+    var body = document.querySelector('body');
     var $burger = $('.burger');
-    var $bars = $('.burger-svg__bars');
-    var $bar = $('.burger-svg__bar');
     var $bar1 = $('.burger-svg__bar-1');
     var $bar2 = $('.burger-svg__bar-2');
     var $bar3 = $('.burger-svg__bar-3');
@@ -13,7 +11,6 @@ $(function () {
     var burgerTL = new TimelineMax();
 
     function burgerOver() {
-
         if (!isChangingState) {
             burgerTL.clear();
             if (!isOpen) {
@@ -147,8 +144,6 @@ $(function () {
             }, "-=0.5");
     }
 
-
-
     $burger.on('click', function (e) {
 
         if (!isChangingState) {
@@ -157,32 +152,25 @@ $(function () {
             if (!isOpen) {
                 showCloseBurger();
                 navbar.classList.toggle('active');
+                body.classList.toggle('no__scroll');
             } else {
                 showOpenBurger();
                 navbar.classList.toggle('active');
+                body.classList.toggle('no__scroll');
             }
         }
 
     });
 
-
-
-      
-
-
-
-
     $(window).resize(function () {
         if ($(window).width() > 767 && !isChangingState) {
             showOpenBurger();
             navbar.classList.remove('active');
+            body.classList.toggle('no__scroll');
         }
     });
 
-    
-
     $burger.hover(burgerOver, burgerOut);
-
 });
 
 console.clear();

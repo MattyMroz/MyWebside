@@ -271,8 +271,8 @@ input {
     cursor: pointer;
 }
 
-.isNavOpen {
-    overflow: hidden;
+.no__scroll::-webkit-scrollbar {
+    display: none;
 }
 
 
