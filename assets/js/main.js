@@ -176,4 +176,19 @@ $(function () {
 console.clear();
 
 // =============== DARKMODE ===============
-
+$(function () {
+    var $body = document.body;
+    var $toggleBtn = document.querySelector('.toggle__btn');
+    var $currentTheme = localStorage.getItem('dark__mod');
+    if ($currentTheme) {
+        $body.classList.add($currentTheme);
+    }
+    $('.toggle__btn').click(function () {
+        $body.classList.toggle('dark__mode');
+        if ($body.classList.contains('dark__mode')) {
+            localStorage.setItem('dark__mod', 'dark__mode');
+        } else {
+            localStorage.setItem('dark__mod', 'light__mode');
+        }
+    });
+});

@@ -145,33 +145,7 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        // function changeMode() {
-        //    var body = document.body;
-        //    body.classList.toggle("dark__mode");
-        // }
 
-
-        var $body = document.body;
-        var $toggleBtn = document.querySelector('.toggle__btn');
-        var $currentTheme = localStorage.getItem('dark__mod');
-        if ($currentTheme) {
-            $body.classList.add($currentTheme);
-        }
-        $('.toggle__btn').click(function () {
-            $body.classList.toggle('dark__mode');
-            if ($body.classList.contains('dark__mode')) {
-                localStorage.setItem('dark__mod', 'dark__mode');
-            } else {
-                localStorage.setItem('dark__mod', 'light__mode');
-            }
-        });
-
-        // $('.toggle__btn').click(function () {
-        //     body.classList.toggle('dark__mode');
-        //     if (body.classList.contains('dark__mode')) {
-        //         localStorage.setItem('dark__mode', 'theme__active');
-        //     }
-        // });
     </script>
 
 </body>
