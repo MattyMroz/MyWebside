@@ -54,7 +54,11 @@
                     <a href="#contact" class="nav__link">Kontakt</a>
                 </li>
                 <li class="btns__1">
-                    <i class="ri-checkbox-blank-circle-fill th-btn"></i>
+                    <!-- <i class="ri-checkbox-blank-circle-fill th-btn"> -->
+                    <label class="switch">
+                        <input type="checkbox" class="toggle__btn">
+                        <span class="slider"></span>
+                    </label></i>
                 </li>
                 <li class="easter__egg"><a href="easter__egg"></a></li>
             </ul>
@@ -62,7 +66,11 @@
         </nav>
 
         <div class="btns__2">
-            <i class="ri-checkbox-blank-circle-fill th-btn"></i>
+            <!-- <i class="ri-checkbox-blank-circle-fill th-btn"></i> -->
+            <label class="switch">
+                <input type="checkbox" class="toggle__btn">
+                <span class="slider"></span>
+            </label>
         </div>
 
         <!-- <i class="ri-moon-fill"></i> -->
@@ -80,8 +88,8 @@
         </button>
     </header>
 
-    <!-- =============== MAIN =============== -->
 
+    <!-- =============== MAIN =============== -->
     <main class="main">
         <br>
         <br>
@@ -135,6 +143,36 @@
 
     <!-- =============== MAIN JS =============== -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        // function changeMode() {
+        //    var body = document.body;
+        //    body.classList.toggle("dark__mode");
+        // }
+
+
+        var $body = document.body;
+        var $toggleBtn = document.querySelector('.toggle__btn');
+        var $currentTheme = localStorage.getItem('dark__mod');
+        if ($currentTheme) {
+            $body.classList.add($currentTheme);
+        }
+        $('.toggle__btn').click(function () {
+            $body.classList.toggle('dark__mode');
+            if ($body.classList.contains('dark__mode')) {
+                localStorage.setItem('dark__mod', 'dark__mode');
+            } else {
+                localStorage.setItem('dark__mod', 'light__mode');
+            }
+        });
+
+        // $('.toggle__btn').click(function () {
+        //     body.classList.toggle('dark__mode');
+        //     if (body.classList.contains('dark__mode')) {
+        //         localStorage.setItem('dark__mode', 'theme__active');
+        //     }
+        // });
+    </script>
 
 </body>
 

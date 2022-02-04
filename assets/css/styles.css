@@ -25,23 +25,25 @@
 :root {
     --header-height: 3rem;
 
-    /* ========== Colors ========== */
-    --first-color: hsl(253, 65%, 52%);
+    /* ========== Basic colors ========== */
+    --white: white;
+    --black: black;
+
+    --first-color: hsl(253, 100%, 62%);
     --first-color-alt: hsl(253, 69%, 28%);
 
     --secound-color: hsl(219, 100%, 50%);
     --secound-color-alt: hsl(219, 100%, 33%);
 
-    --title-color: hsl(0, 0%, 100%);
-    --text-color: hsl(0, 0%, 100%);
-    --text-color-light: hsl(0, 0%, 0%);
+    --title-color: hsl(0, 0%, 0%);
+    --text-color: hsl(0, 0%, 0%);
+    --text-color-alt: hsl(0, 0%, 15%);
 
-    --body-color: hsl(0, 0%, 0%);
-    --container-color: hsl(0, 0%, 0%);
+    --body-color: hsl(0, 0%, 100%);
+    --container-color: hsl(0, 0%, 100%);
 
-    --border: .1rem solid rgba(255, 255, 255, .3);
+    --border: .1rem solid rgba(0, 0, 0, 0.3);
 
-    --white: hsl(0, 0%, 100%);
 
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
@@ -60,11 +62,6 @@
     /* ========== Font weight ========== .75rem*/
     /* --font-medium: 500;
     --font-bold: 600; */
-
-    /* ========== z index ========== */
-    --z-tooltip: 10;
-    --z-fixed: 100;
-    --z-modal: 1000;
 }
 
 /* =============== BASE =============== */
@@ -87,7 +84,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ========== SCROLLBAR ========== */
+/* =============== SCROLLBAR =============== */
 html::-webkit-scrollbar {
     width: .8rem;
 }
@@ -97,13 +94,42 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-    background: var(--white);
+    background: var(--black);
     border-radius: 5rem;
+}
+
+
+
+/* body {
+    background-color: var(--body-color);
+
+    color: var(--text-color);
+    font-family: var(--normal-font);
+    font-size: var(--normal-font-size);
+} */
+
+
+
+/* =============== Dark Mode =============== */
+.dark__mode {
+    --first-color: hsl(253, 65%, 52%);
+    --first-color-alt: hsl(253, 69%, 28%);
+
+    --secound-color: hsl(219, 100%, 50%);
+    --secound-color-alt: hsl(219, 100%, 33%);
+
+    --title-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-alt: hsl(0, 0%, 56%);
+
+    --body-color: hsl(0, 0%, 0%);
+    --container-color: hsl(0, 0%, 0%);
+
+    --border: .1rem solid rgba(182, 182, 182, 0.3);
 }
 
 body {
     background-color: var(--body-color);
-    /* Tymczasowo */
     color: var(--text-color);
     font-family: var(--normal-font);
     font-size: var(--normal-font-size);
@@ -168,14 +194,16 @@ input {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 9999;
+
 }
 
 .nav__logo {
     font-size: var(--h1-font-size);
     font-family: var(--bold-font);
-    color: var(--white);
+    color: var(--title-color);
     width: 15rem;
+    z-index: 9999;
 }
 
 .navbar ul {
@@ -192,7 +220,8 @@ input {
 .navbar ul li a {
     margin: 0 1rem;
     font-size: 1.6rem;
-    color: var(--white);
+    color: var(--text-color);
+
     position: relative;
 }
 
@@ -227,10 +256,12 @@ input {
     }
 }
 
+
+
+/* =============== DARKMODE MECHANICS =============== */
 .th-btn {
     cursor: pointer;
     font-size: 1.6rem;
-
 }
 
 .btns__1 {
@@ -242,10 +273,53 @@ input {
     direction: rtl;
 }
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 4rem;
+    height: 2.26rem;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--first-color);
+    border-radius: 2.26rem;
+    transition: .4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 1.73rem;
+    width: 1.73rem;
+    left: .26rem;
+    bottom: .26rem;
+    background: var(--first-color-alt);
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background: var(--first-color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(1.73rem);
+}
+
+
 
 /* =============== HAMBURGER =============== */
 .burger {
-    z-index: 3;
     top: calc(50% - 50px);
     left: calc(50% - 50px);
     width: 50px;
@@ -256,6 +330,7 @@ input {
     border: none;
     outline: none;
     display: none;
+    z-index: 9999;
 }
 
 #burger-svg {
@@ -264,7 +339,11 @@ input {
 }
 
 .burger-svg__bars {
-    fill: var(--white);
+    fill: var(--text-color);
+}
+
+.burger-svg__bars.active {
+    fill: var(--text-color-alt);
 }
 
 .burger:hover {
@@ -290,7 +369,6 @@ input {
 @media screen and (max-width: 320px) {} */
 
 @media (max-width:991px) {
-
     html {
         font-size: 55%;
     }
@@ -303,7 +381,7 @@ input {
         padding: 0 2rem;
     }
 
-    .th-btn {
+    .btns__2 {
         padding: 0 2rem;
     }
 
@@ -314,9 +392,11 @@ input {
 }
 
 @media (max-width:768px) {
+    .header {
+        transition: .6s;
+    }
     .nav__logo {
         padding: 0;
-        z-index: 1000;
     }
 
     .th-btn {
@@ -339,13 +419,14 @@ input {
         height: 100vh;
         padding: 3rem 2rem 3.5rem;
         background-color: var(--body-color);
-        transition: all 0.6s;
         overflow: auto;
+        float: left;
+        transition: .6s;
         /* display: none; */
     }
 
     .navbar.active {
-        top: 99%;
+        top: 100%;
     }
 
     .navbar ul {

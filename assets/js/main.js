@@ -3,6 +3,7 @@ $(function () {
     var navbar = document.querySelector('.navbar');
     var body = document.querySelector('body');
     var $burger = $('.burger');
+    var $bars = $('.burger-svg__bars');
     var $bar1 = $('.burger-svg__bar-1');
     var $bar2 = $('.burger-svg__bar-2');
     var $bar3 = $('.burger-svg__bar-3');
@@ -172,5 +173,7 @@ $(function () {
 
     $burger.hover(burgerOver, burgerOut);
 });
-
 console.clear();
+
+// =============== DARKMODE ===============
+
