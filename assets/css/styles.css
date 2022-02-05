@@ -23,9 +23,7 @@
 
 /* =============== VARIABLES CSS =============== */
 :root {
-    --header-height: 3rem;
-
-    /* ========== Basic colors ========== */
+    /* =============== LIGHT MODE =============== */
     --white: white;
     --black: black;
 
@@ -74,7 +72,6 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
-
 }
 
 html {
@@ -84,34 +81,8 @@ html {
     scroll-behavior: smooth;
 }
 
-/* =============== SCROLLBAR =============== */
-html::-webkit-scrollbar {
-    width: .8rem;
-}
-
-html::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-    background: var(--black);
-    border-radius: 5rem;
-}
-
-
-
-/* body {
-    background-color: var(--body-color);
-
-    color: var(--text-color);
-    font-family: var(--normal-font);
-    font-size: var(--normal-font-size);
-} */
-
-
-
-/* =============== Dark Mode =============== */
-.dark__mode {
+/* =============== DARK MODE =============== */
+html.dark__mode {
     --first-color: hsl(253, 65%, 52%);
     --first-color-alt: hsl(253, 69%, 28%);
 
@@ -128,6 +99,26 @@ html::-webkit-scrollbar-thumb {
     --border: .1rem solid rgba(182, 182, 182, 0.3);
 }
 
+/* =============== SCROLLBAR =============== */
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 5rem;
+}
+
+html.dark__mode::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 5rem;
+}
+
+/* =============== BODY =============== */
 body {
     background-color: var(--body-color);
     color: var(--text-color);
@@ -135,6 +126,178 @@ body {
     font-size: var(--normal-font-size);
 }
 
+/* =============== HEADER AND NAVBAR =============== */
+.header {
+    background-color: var(--body-color);
+    /* background: transparent; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    height: 6.5rem;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.nav__logo {
+    width: 15rem;
+    z-index: 9999;
+}
+
+.nav__logo a {
+    font-size: var(--h1-font-size);
+    font-family: var(--bold-font);
+    color: var(--title-color);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: inline-block;
+}
+
+.navbar ul li a {
+    position: relative;
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.easter__egg {
+    height: 0px;
+    width: 0px;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--first-color);
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--first-color);
+}
+
+.navbar ul li a:hover {
+    color: var(--first-color);
+    transition: all 0.6s;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .header .navbar ul li a:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}
+
+/* =============== DARKMODE MECHANICS =============== */
+.th-btn {
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.btns__1 {
+    display: none;
+}
+
+.btns__2 {
+    width: 15rem;
+    direction: rtl;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    width: 4rem;
+    height: 2.26rem;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--first-color);
+    border-radius: 2.26rem;
+    transition: .4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 1.73rem;
+    width: 1.73rem;
+    left: .26rem;
+    bottom: .26rem;
+    background: var(--first-color-alt);
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background: var(--first-color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(1.73rem);
+}
+
+/* =============== HAMBURGER =============== */
+.burger {
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: none;
+    z-index: 9999;
+}
+
+#burger-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.burger-svg__bars {
+    fill: var(--text-color);
+}
+
+.burger-svg__bars.active {
+    fill: var(--text-color-alt);
+}
+
+.burger:hover {
+    cursor: pointer;
+}
+
+.no__scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
 h1,
 h2,
 h3,
@@ -179,182 +342,6 @@ input {
     overflow-x: hidden;
 } */
 
-/*=============== REUSABLE CSS CLASSES ===============*/
-
-/* =============== HEADER AND NAVBAR =============== */
-.header {
-    background: var(--body-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 7%;
-    height: 6.5rem;
-    border-bottom: var(--border);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-
-}
-
-.nav__logo {
-    font-size: var(--h1-font-size);
-    font-family: var(--bold-font);
-    color: var(--title-color);
-    width: 15rem;
-    z-index: 9999;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.navbar ul li {
-    margin: inline-block;
-}
-
-.navbar ul li a {
-    margin: 0 1rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
-
-    position: relative;
-}
-
-.easter__egg {
-    height: 0px;
-    width: 0px;
-}
-
-.navbar ul li a::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--first-color);
-    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    color: var(--first-color);
-}
-
-.navbar ul li a:hover {
-    color: var(--first-color);
-    transition: all 0.6s;
-}
-
-
-@media (hover: hover) and (pointer: fine) {
-    .header .navbar ul li a:hover::before {
-        left: 0;
-        right: auto;
-        width: 100%;
-    }
-}
-
-
-
-/* =============== DARKMODE MECHANICS =============== */
-.th-btn {
-    cursor: pointer;
-    font-size: 1.6rem;
-}
-
-.btns__1 {
-    display: none;
-}
-
-.btns__2 {
-    width: 15rem;
-    direction: rtl;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 4rem;
-    height: 2.26rem;
-}
-
-.switch input {
-    display: none;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--first-color);
-    border-radius: 2.26rem;
-    transition: .4s;
-}
-
-.slider:before {
-    content: "";
-    position: absolute;
-    height: 1.73rem;
-    width: 1.73rem;
-    left: .26rem;
-    bottom: .26rem;
-    background: var(--first-color-alt);
-    border-radius: 50%;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background: var(--first-color);
-}
-
-input:checked+.slider:before {
-    transform: translateX(1.73rem);
-}
-
-
-
-/* =============== HAMBURGER =============== */
-.burger {
-    top: calc(50% - 50px);
-    left: calc(50% - 50px);
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    display: none;
-    z-index: 9999;
-}
-
-#burger-svg {
-    width: 100%;
-    height: 100%;
-}
-
-.burger-svg__bars {
-    fill: var(--text-color);
-}
-
-.burger-svg__bars.active {
-    fill: var(--text-color-alt);
-}
-
-.burger:hover {
-    cursor: pointer;
-}
-
-.no__scroll::-webkit-scrollbar {
-    display: none;
-}
-
-
 
 /* =============== BREAKPOINTS =============== */
 
@@ -385,9 +372,9 @@ input:checked+.slider:before {
         padding: 0 2rem;
     }
 
-    section {
+    /* section {
         padding: 2rem;
-    }
+    } */
 
 }
 
@@ -395,16 +382,9 @@ input:checked+.slider:before {
     .header {
         transition: .6s;
     }
+
     .nav__logo {
         padding: 0;
-    }
-
-    .th-btn {
-        font-size: 2rem;
-    }
-
-    .btns__2 {
-        display: none;
     }
 
     .navbar::-webkit-scrollbar {
@@ -422,11 +402,10 @@ input:checked+.slider:before {
         overflow: auto;
         float: left;
         transition: .6s;
-        /* display: none; */
     }
 
     .navbar.active {
-        top: 100%;
+        top: 99%;
     }
 
     .navbar ul {
@@ -440,10 +419,18 @@ input:checked+.slider:before {
         font-size: 2.5rem;
     }
 
+    .th-btn {
+        font-size: 2rem;
+    }
+
     .btns__1 {
         display: inline-block;
         padding: 2rem 2rem 0 2rem;
         margin-bottom: 8rem;
+    }
+
+    .btns__2 {
+        display: none;
     }
 
     .burger {

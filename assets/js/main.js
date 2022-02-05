@@ -1,9 +1,9 @@
 // =============== HAMBURGER MENU ===============
 $(function () {
-    var navbar = document.querySelector('.navbar');
-    var body = document.querySelector('body');
+    var $html = $('html');
+    var $navbar = $('.navbar');
     var $burger = $('.burger');
-    var $bars = $('.burger-svg__bars');
+    // var $bars = $('.burger-svg__bars');
     var $bar1 = $('.burger-svg__bar-1');
     var $bar2 = $('.burger-svg__bar-2');
     var $bar3 = $('.burger-svg__bar-3');
@@ -152,12 +152,12 @@ $(function () {
 
             if (!isOpen) {
                 showCloseBurger();
-                navbar.classList.toggle('active');
-                body.classList.toggle('no__scroll');
+                $navbar.toggleClass('active');
+                $html.toggleClass('no__scroll');
             } else {
                 showOpenBurger();
-                navbar.classList.toggle('active');
-                body.classList.toggle('no__scroll');
+                $navbar.toggleClass('active');
+                $html.toggleClass('no__scroll');
             }
         }
 
@@ -166,8 +166,8 @@ $(function () {
     $(window).resize(function () {
         if ($(window).width() > 767 && !isChangingState) {
             showOpenBurger();
-            navbar.classList.remove('active');
-            body.classList.toggle('no__scroll');
+            $navbar.removeClass('active');
+            $html.removeClass('no__scroll');
         }
     });
 
@@ -177,15 +177,15 @@ console.clear();
 
 // =============== DARKMODE ===============
 $(function () {
-    var $body = document.body;
-    var $toggleBtn = document.querySelector('.toggle__btn');
+    var $html = document.documentElement;
+    var $toogleBtn = $('.toggle__btn');
     var $currentTheme = localStorage.getItem('dark__mod');
     if ($currentTheme) {
-        $body.classList.add($currentTheme);
+        $html.classList.add($currentTheme);
     }
-    $('.toggle__btn').click(function () {
-        $body.classList.toggle('dark__mode');
-        if ($body.classList.contains('dark__mode')) {
+    $toogleBtn.on('click', function (e) {
+        $html.classList.toggle('dark__mode');
+        if ($html.classList.contains('dark__mode')) {
             localStorage.setItem('dark__mod', 'dark__mode');
         } else {
             localStorage.setItem('dark__mod', 'light__mode');
