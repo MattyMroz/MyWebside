@@ -42,7 +42,6 @@
 
     --border: .1rem solid rgba(0, 0, 0, 0.3);
 
-
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
     --bold-font: 'MyriadWebPro-Bold', sans-serif;
@@ -77,7 +76,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 9rem;
+    scroll-padding-top: 6.5rem;
     scroll-behavior: smooth;
 }
 
@@ -96,7 +95,7 @@ html.dark__mode {
     --body-color: hsl(0, 0%, 0%);
     --container-color: hsl(0, 0%, 0%);
 
-    --border: .1rem solid rgba(182, 182, 182, 0.3);
+    --border: .1rem solid rgba(59, 59, 59, 0.3);
 }
 
 /* =============== SCROLLBAR =============== */
@@ -128,20 +127,34 @@ body {
 
 /* =============== HEADER AND NAVBAR =============== */
 .header {
-    background-color: var(--body-color);
-    /* background: transparent; */
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 7%;
+    padding: 2rem 7%;
     height: 6.5rem;
-    border-bottom: var(--border);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 9999;
 }
+
+.header__scroll {
+    background-color: var(--body-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    height: 6.5rem;
+    position: fixed;
+    /* border-bottom: var(--border); */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
 
 .nav__logo {
     width: 15rem;
@@ -194,7 +207,6 @@ body {
     transition: all 0.6s;
 }
 
-
 @media (hover: hover) and (pointer: fine) {
     .header .navbar ul li a:hover::before {
         left: 0;
@@ -204,11 +216,6 @@ body {
 }
 
 /* =============== DARKMODE MECHANICS =============== */
-.th-btn {
-    cursor: pointer;
-    font-size: 1.6rem;
-}
-
 .btns__1 {
     display: none;
 }
@@ -293,6 +300,10 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
+.no__scroll {
+    overflow: hidden;
+}
+
 .no__scroll::-webkit-scrollbar {
     display: none;
 }
@@ -306,6 +317,11 @@ h5,
 h6 {
     color: var(--title-color);
     font-family: var(--bold-font);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -355,13 +371,13 @@ input {
 
 @media screen and (max-width: 320px) {} */
 
-@media (max-width:991px) {
+@media (max-width:992px) {
     html {
         font-size: 55%;
     }
 
     .header {
-        padding: 4rem 2rem;
+        padding: 0 2rem;
     }
 
     .nav__logo {
@@ -393,7 +409,7 @@ input {
 
     .navbar {
         position: absolute;
-        top: -1000%;
+        top: -100vh;
         right: 0;
         width: 100%;
         height: 100vh;
@@ -417,10 +433,6 @@ input {
         margin: 1.5rem;
         padding: .5rem;
         font-size: 2.5rem;
-    }
-
-    .th-btn {
-        font-size: 2rem;
     }
 
     .btns__1 {
@@ -454,10 +466,8 @@ input {
 
 }
 
-@media (max-width:450px) {
-
-    html {
-        font-size: 50%;
+@media (max-width: 210px) {
+    .header {
+        padding: 0 0 0 0.5rem;
     }
-
 }

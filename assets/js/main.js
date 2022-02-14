@@ -1,9 +1,10 @@
-// =============== HAMBURGER MENU ===============
+// =============== NAVBAR, NAVLIKNS AND BURGER MENU ===============
 $(function () {
     var $html = $('html');
+    var $header = $('.header');
     var $navbar = $('.navbar');
+    var $navLink = $('.nav__link');
     var $burger = $('.burger');
-    // var $bars = $('.burger-svg__bars');
     var $bar1 = $('.burger-svg__bar-1');
     var $bar2 = $('.burger-svg__bar-2');
     var $bar3 = $('.burger-svg__bar-3');
@@ -11,6 +12,7 @@ $(function () {
     var isOpen = false;
     var burgerTL = new TimelineMax();
 
+    // ========== Burger Animations =========
     function burgerOver() {
         if (!isChangingState) {
             burgerTL.clear();
@@ -145,8 +147,11 @@ $(function () {
             }, "-=0.5");
     }
 
-    $burger.on('click', function (e) {
+    // ========== Burger Hover =========
+    $burger.hover(burgerOver, burgerOut);
 
+    // ========== Burger On Click =========
+    $burger.on('click', function (e) {
         if (!isChangingState) {
             isChangingState = true;
 
@@ -154,26 +159,52 @@ $(function () {
                 showCloseBurger();
                 $navbar.toggleClass('active');
                 $html.toggleClass('no__scroll');
+                $header.addClass('header__scroll');
             } else {
                 showOpenBurger();
                 $navbar.toggleClass('active');
                 $html.toggleClass('no__scroll');
+                if ($(window).scrollTop() == 0) {
+                    $header.removeClass('header__scroll');
+                }
             }
         }
 
     });
 
+    // ========== NavLink On Click =========
+    $navLink.on('click', function (e) {
+        if ($navbar.hasClass('active')) {
+            isChangingState = true;
+            showOpenBurger();
+            $navbar.toggleClass('active');
+            $html.toggleClass('no__scroll');
+            if ($(window).scrollTop() == 0) {
+                $header.removeClass('header__scroll');
+            }
+        }
+    });
+
+    // ========== Resize =========
     $(window).resize(function () {
-        if ($(window).width() > 767 && !isChangingState) {
+        if ($(window).width() > 768 && !isChangingState) {
             showOpenBurger();
             $navbar.removeClass('active');
             $html.removeClass('no__scroll');
         }
     });
 
-    $burger.hover(burgerOver, burgerOut);
+    // ========== Header Scroll =========
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 0) {
+            $header.addClass('header__scroll');
+        } else {
+            $header.removeClass('header__scroll');
+        }
+    });
+
+
 });
-console.clear();
 
 // =============== DARKMODE ===============
 $(function () {
@@ -192,3 +223,9 @@ $(function () {
         }
     });
 });
+
+
+
+
+
+// =============== SCROLL TO TOP ===============
