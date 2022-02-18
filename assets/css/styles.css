@@ -40,7 +40,7 @@
     --body-color: hsl(0, 0%, 100%);
     --container-color: hsl(0, 0%, 100%);
 
-    --border: .1rem solid rgba(0, 0, 0, 0.3);
+    --border-color: .1rem solid rgba(0, 0, 0, 0.3);
 
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
@@ -76,7 +76,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 7rem;
     scroll-behavior: smooth;
 }
 
@@ -95,7 +95,8 @@ html.dark__mode {
     --body-color: hsl(0, 0%, 0%);
     --container-color: hsl(0, 0%, 0%);
 
-    --border: .1rem solid rgba(59, 59, 59, 0.3);
+    --border-color: .1rem solid rgba(59, 59, 59, 0.3);
+
 }
 
 /* =============== SCROLLBAR =============== */
@@ -132,13 +133,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 70px;
+    height: 7rem;
     position: fixed;
     border-bottom: transparent;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+
 }
 
 .header__scroll {
@@ -147,13 +148,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 70px;
+    height: 7rem;
     position: fixed;
-    border-bottom: var(--border);
+    border-bottom: var(--border-color);
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+
 }
 
 .nav__logo {
@@ -183,6 +184,7 @@ body {
     margin: 0 1rem;
     font-size: 1.6rem;
     color: var(--text-color);
+    /* text-transform: uppercase; */
 }
 
 .navbar ul li a::before {
@@ -408,7 +410,7 @@ input {
     }
 
     .navbar::-webkit-scrollbar {
-        background: transparent;
+        display: none;
     }
 
     .navbar {
@@ -419,11 +421,12 @@ input {
         right: 0;
         width: 100%;
         height: 100vh;
-        padding: 7rem 2rem 3.5rem;
+        padding: 9rem 2rem 0 3.5rem;
         background-color: var(--body-color);
         overflow: auto;
         float: left;
         transition: .6s;
+
     }
 
     .navbar.active {
