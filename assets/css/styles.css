@@ -76,7 +76,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 7rem;
+    scroll-padding-top: 60px;
     scroll-behavior: smooth;
 }
 
@@ -133,7 +133,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 7rem;
+    height: 60px;
     position: fixed;
     border-bottom: transparent;
     top: 0;
@@ -148,7 +148,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 7rem;
+    height: 60px;
     position: fixed;
     border-bottom: var(--border-color);
     top: 0;
@@ -376,7 +376,6 @@ input {
 @media (max-width:992px) {
     html {
         font-size: 55%;
-        scroll-padding-top: 7rem;
     }
 
     .header {
@@ -443,7 +442,8 @@ input {
         display: block;
         margin: 1.5rem;
         padding: .5rem;
-        font-size: 2.5rem;
+        font-size: 3rem;
+        /* lol */
     }
 
     .btns__1 {
