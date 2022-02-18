@@ -159,14 +159,10 @@ $(function () {
                 showCloseBurger();
                 $navbar.addClass('active');
                 $html.addClass('no__scroll');
-                $header.addClass('header__scroll');
             } else {
                 showOpenBurger();
                 $navbar.removeClass('active');
                 $html.removeClass('no__scroll');
-                if ($(window).scrollTop() == 0) {
-                    $header.removeClass('header__scroll');
-                }
             }
         }
 
@@ -181,9 +177,6 @@ $(function () {
                     showOpenBurger();
                     $navbar.removeClass('active');
                     $html.removeClass('no__scroll');
-                    if ($(window).scrollTop() == 0) {
-                        $header.removeClass('header__scroll');
-                    }
                 }
             }
         }
@@ -196,9 +189,6 @@ $(function () {
             showOpenBurger();
             $navbar.removeClass('active');
             $html.removeClass('no__scroll');
-            if ($(window).scrollTop() == 0) {
-                $header.removeClass('header__scroll');
-            }
         }
     });
 
