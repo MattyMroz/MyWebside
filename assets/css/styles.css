@@ -181,7 +181,7 @@ body {
 
 .navbar ul li a {
     position: relative;
-    margin: 0 1rem;
+    margin: 0 1.25rem;
     font-size: 1.6rem;
     color: var(--text-color);
     /* text-transform: uppercase; */
@@ -376,6 +376,7 @@ input {
 @media (max-width:992px) {
     html {
         font-size: 55%;
+        scroll-padding-top: 7rem;
     }
 
     .header {
@@ -401,9 +402,9 @@ input {
 }
 
 @media (max-width:768px) {
-    .header {
+    /* .header {
         transition: .6s;
-    }
+    } */
 
     .nav__logo {
         padding: 0;
