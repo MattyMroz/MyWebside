@@ -76,7 +76,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: 7rem;
     scroll-behavior: smooth;
 }
 
@@ -132,8 +132,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 6.5rem;
+    height: 7rem;
     position: fixed;
+    border-bottom: transparent;
     top: 0;
     left: 0;
     right: 0;
@@ -145,16 +146,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 7%;
-    height: 6.5rem;
+    padding: 2rem 7%;
+    height: 7rem;
     position: fixed;
-    /* border-bottom: var(--border); */
+    border-bottom: var(--border);
     top: 0;
     left: 0;
     right: 0;
     z-index: 9999;
 }
-
 
 .nav__logo {
     width: 15rem;
@@ -183,11 +183,6 @@ body {
     margin: 0 1rem;
     font-size: 1.6rem;
     color: var(--text-color);
-}
-
-.easter__egg {
-    height: 0px;
-    width: 0px;
 }
 
 .navbar ul li a::before {
@@ -380,6 +375,10 @@ input {
         padding: 0 2rem;
     }
 
+    .navbar{
+        border-radius: 5rem;
+    }
+
     .nav__logo {
         padding: 0 2rem;
     }
@@ -409,6 +408,7 @@ input {
 
     .navbar {
         position: absolute;
+        border-radius: 0;
         top: -100vh;
         right: 0;
         width: 100%;
@@ -422,6 +422,7 @@ input {
 
     .navbar.active {
         top: 99%;
+        border-radius: 0;
     }
 
     .navbar ul {

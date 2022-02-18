@@ -12,7 +12,7 @@ $(function () {
     var isOpen = false;
     var burgerTL = new TimelineMax();
 
-    // ========== Burger Animations =========
+    // ========== Burger Animations ==========
     function burgerOver() {
         if (!isChangingState) {
             burgerTL.clear();
@@ -147,23 +147,23 @@ $(function () {
             }, "-=0.5");
     }
 
-    // ========== Burger Hover =========
+    // ========== Burger Hover ==========
     $burger.hover(burgerOver, burgerOut);
 
-    // ========== Burger On Click =========
+    // ========== Burger On Click ==========
     $burger.on('click', function (e) {
         if (!isChangingState) {
             isChangingState = true;
 
             if (!isOpen) {
                 showCloseBurger();
-                $navbar.toggleClass('active');
-                $html.toggleClass('no__scroll');
+                $navbar.addClass('active');
+                $html.addClass('no__scroll');
                 $header.addClass('header__scroll');
             } else {
                 showOpenBurger();
-                $navbar.toggleClass('active');
-                $html.toggleClass('no__scroll');
+                $navbar.removeClass('active');
+                $html.removeClass('no__scroll');
                 if ($(window).scrollTop() == 0) {
                     $header.removeClass('header__scroll');
                 }
@@ -172,29 +172,37 @@ $(function () {
 
     });
 
-    // ========== NavLink On Click =========
+    // ========== NavLink On Click ==========
     $navLink.on('click', function (e) {
         if ($navbar.hasClass('active')) {
+            if (!isChangingState) {
+                isChangingState = true;
+                if (isOpen) {
+                    showOpenBurger();
+                    $navbar.removeClass('active');
+                    $html.removeClass('no__scroll');
+                    if ($(window).scrollTop() == 0) {
+                        $header.removeClass('header__scroll');
+                    }
+                }
+            }
+        }
+    });
+
+    // ========== Resize ==========
+    $(window).resize(function () {
+        if ($(window).width() != 0 && !isChangingState) {
             isChangingState = true;
             showOpenBurger();
-            $navbar.toggleClass('active');
-            $html.toggleClass('no__scroll');
+            $navbar.removeClass('active');
+            $html.removeClass('no__scroll');
             if ($(window).scrollTop() == 0) {
                 $header.removeClass('header__scroll');
             }
         }
     });
 
-    // ========== Resize =========
-    $(window).resize(function () {
-        if ($(window).width() > 768 && !isChangingState) {
-            showOpenBurger();
-            $navbar.removeClass('active');
-            $html.removeClass('no__scroll');
-        }
-    });
-
-    // ========== Header Scroll =========
+    // ========== Header Scroll ==========
     $(window).scroll(function () {
         if ($(window).scrollTop() > 0) {
             $header.addClass('header__scroll');
@@ -202,8 +210,6 @@ $(function () {
             $header.removeClass('header__scroll');
         }
     });
-
-
 });
 
 // =============== DARKMODE ===============
