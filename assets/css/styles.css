@@ -77,7 +77,7 @@ html {
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-padding-top: 60px;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 /* =============== DARK MODE =============== */
@@ -163,7 +163,7 @@ body {
 }
 
 .nav__logo a {
-    font-size: var(--h1-font-size);
+    font-size: var(--biggest-font-size);
     font-family: var(--bold-font);
     color: var(--title-color);
 }
@@ -442,7 +442,7 @@ input {
         display: block;
         margin: 1.5rem;
         padding: .5rem;
-        font-size: 3rem;
+        font-size: var(--biggest-font-size);
         /* lol */
     }
 

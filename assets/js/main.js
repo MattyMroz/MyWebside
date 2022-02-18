@@ -1,4 +1,4 @@
-// =============== NAVBAR, NAVLIKNS AND BURGER MENU ===============
+// =============== NAVBAR, NAVLIKNS, BURGER MENU AND SCROLL ===============
 $(function () {
     var $html = $('html');
     var $header = $('.header');
@@ -180,10 +180,19 @@ $(function () {
                 }
             }
         }
+
+        e.preventDefault();
+        var $this = $(this);
+        var $target = $($this.attr('href'));
+        if ($target.length) {
+            $('html, body').animate({
+                scrollTop: $target.offset().top
+            }, 600);
+        }
     });
 
     // ========== Resize ==========
-    $(window).resize(function () {
+    $(window).resize(function (e) {
         if ($(window).width() != 0 && !isChangingState) {
             isChangingState = true;
             showOpenBurger();
@@ -200,6 +209,7 @@ $(function () {
             $header.removeClass('header__scroll');
         }
     });
+
 });
 
 // =============== DARKMODE ===============
@@ -219,7 +229,6 @@ $(function () {
         }
     });
 });
-
 
 
 
