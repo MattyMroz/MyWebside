@@ -181,14 +181,14 @@ $(function () {
             }
         }
 
-        e.preventDefault();
-        var $this = $(this);
-        var $target = $($this.attr('href'));
-        if ($target.length) {
-            $('html, body').animate({
-                scrollTop: $target.offset().top
-            }, 600);
-        }
+        // e.preventDefault();
+        // var $this = $(this);
+        // var $target = $($this.attr('href'));
+        // if ($target.length) {
+        //     $('html, body').animate({
+        //         scrollTop: $target.offset().top
+        //     }, 600);
+        // }
     });
 
     // ========== Resize ==========

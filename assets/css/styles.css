@@ -77,7 +77,7 @@ html {
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-padding-top: 60px;
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
 }
 
 /* =============== DARK MODE =============== */
@@ -358,6 +358,26 @@ input {
 
 .main {
     overflow-x: hidden;
+} */
+
+/* .home{
+    scroll-margin-top: 60px;
+}
+
+.about{
+    scroll-margin-top: 60px;
+}
+
+.portfolio{
+    scroll-margin-top: 60px;
+}
+
+.blog{
+    scroll-margin-top: 60px;
+}
+
+.contact{
+    scroll-margin-top: 60px;
 } */
 
 
