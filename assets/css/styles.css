@@ -76,7 +76,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 60px;
+    scroll-padding-top: 7rem;
     scroll-behavior: smooth;
 }
 
@@ -133,7 +133,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 60px;
+    height: 7rem;
     position: fixed;
     border-bottom: transparent;
     top: 0;
@@ -148,7 +148,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 7%;
-    height: 60px;
+    height: 7rem;
     position: fixed;
     border-bottom: var(--border-color);
     top: 0;
