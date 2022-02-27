@@ -76,8 +76,8 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-padding-top: 60px;
-    scroll-behavior: smooth;
+    /* scroll-padding-top: 60px;
+    scroll-behavior: smooth; */
 }
 
 /* =============== DARK MODE =============== */
@@ -212,10 +212,10 @@ body {
     }
 }
 
-.easter__egg {
+/* .easter__egg {
     height: 0px;
     width: 0px;
-}
+} */
 
 /* =============== DARKMODE MECHANICS =============== */
 .btns__1 {

@@ -192,7 +192,7 @@ $(function () {
         }
     });
 
-    // ========== Header Scroll ==========
+    // ========== Header Scroll Animation ==========
     $(window).scroll(function () {
         if ($(window).scrollTop() > 0) {
             $header.addClass('header__scroll');
@@ -200,6 +200,24 @@ $(function () {
             $header.removeClass('header__scroll');
         }
     });
+
+    // ========== Scroll To ==========
+    $navLink.on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $target = $($this.attr('href'));
+        var targetOffset = $target.offset().top;
+        var headerHeight = $header.outerHeight();
+        var scrollTo = targetOffset - headerHeight;
+
+        $('html, body').animate({
+            scrollTop: scrollTo
+        }, 500);
+    });
+
+
+    // ========== Scroll Trigger Animation scroll ==========
+
 
 });
 
@@ -224,4 +242,4 @@ $(function () {
 
 
 
-// =============== SCROLL TO TOP ===============
+// ========== Scroll Trigger ============
