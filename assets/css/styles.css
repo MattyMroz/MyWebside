@@ -40,7 +40,7 @@
     --body-color: hsl(0, 0%, 100%);
     --container-color: hsl(0, 0%, 100%);
 
-    --border-color: .1rem solid rgba(169, 169, 169, 0.3);
+    --border-color: .1rem solid rgba(221, 221, 221, 0.3);
 
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
@@ -458,7 +458,6 @@ input {
         overflow: auto;
         float: left;
         transition: .6s;
-
     }
 
     .navbar.active {
@@ -475,7 +474,6 @@ input {
         margin: 1.5rem;
         padding: .5rem;
         font-size: var(--biggest-font-size);
-        /* lol */
     }
 
     .btns__1 {
@@ -486,6 +484,31 @@ input {
 
     .btns__2 {
         display: none;
+    }
+
+    .switch {
+        width: 5rem;
+        height: 2.825rem;
+    }
+
+    .slider {
+        border-radius: 2.825;
+        transition: .4s;
+    }
+
+    .slider:before {
+        height: 2.1625rem;
+        width: 2.1625rem;
+        left: .325rem;
+        bottom: .325rem;
+    }
+
+    input:checked+.slider {
+        background: var(--first-color);
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(2.1625rem);
     }
 
     .burger {
