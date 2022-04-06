@@ -40,7 +40,7 @@
     --body-color: hsl(0, 0%, 100%);
     --container-color: hsl(0, 0%, 100%);
 
-    --border-color: .1rem solid rgba(0, 0, 0, 0.3);
+    --border-color: .1rem solid rgba(221, 221, 221, 0.3);
 
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
@@ -95,7 +95,7 @@ html.dark__mode {
     --body-color: hsl(0, 0%, 0%);
     --container-color: hsl(0, 0%, 0%);
 
-    --border-color: .1rem solid rgba(59, 59, 59, 0.3);
+    --border-color: .1rem solid rgba(95, 95, 95, 0.3);
 
 }
 
@@ -129,33 +129,43 @@ body {
 /* =============== HEADER AND NAVBAR =============== */
 .header {
     background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 7%;
     height: 60px;
     position: fixed;
     border-bottom: transparent;
     top: 0;
     left: 0;
     right: 0;
-
 }
 
 .header__scroll {
     background-color: var(--body-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 7%;
     height: 60px;
     position: fixed;
     border-bottom: var(--border-color);
     top: 0;
     left: 0;
     right: 0;
-
 }
+
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    height: 60px;
+    position: fixed;
+    border-bottom: transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.container {
+    max-width: 1200px;
+}
+
 
 .nav__logo {
     width: 15rem;
@@ -393,16 +403,19 @@ input {
 
 @media screen and (max-width: 320px) {} */
 
-@media (max-width:992px) {
+
+
+
+@media screen and (max-width: 992px) {
     html {
         font-size: 55%;
     }
 
-    .header {
-        padding: 0 2rem;
+    .nav {
+        padding: 0 2rem 0 2.2rem;
     }
 
-    .navbar{
+    .navbar {
         border-radius: 5rem;
     }
 
@@ -420,7 +433,7 @@ input {
 
 }
 
-@media (max-width:768px) {
+@media screen and (max-width: 768px) {
     /* .header {
         transition: .6s;
     } */
@@ -497,8 +510,8 @@ input {
 
 }
 
-@media (max-width: 210px) {
-    .header {
+@media screen and (max-width: 210px) {
+    .nav {
         padding: 0 0 0 0.5rem;
     }
 }
