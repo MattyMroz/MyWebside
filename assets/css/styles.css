@@ -40,7 +40,7 @@
     --body-color: hsl(0, 0%, 100%);
     --container-color: hsl(0, 0%, 100%);
 
-    --border-color: .1rem solid rgba(221, 221, 221, 0.3);
+    --border-color: .1rem solid rgba(169, 169, 169, 0.3);
 
     /* ========== Font and typography ========== */
     --normal-font: 'Myriad Web Pro', sans-serif;
@@ -166,7 +166,6 @@ body {
     max-width: 1200px;
 }
 
-
 .nav__logo {
     width: 15rem;
     z-index: 9999;
@@ -192,7 +191,7 @@ body {
 .navbar ul li a {
     position: relative;
     margin: 0 1.25rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--text-color);
     /* text-transform: uppercase; */
 }
