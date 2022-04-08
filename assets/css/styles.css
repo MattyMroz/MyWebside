@@ -179,28 +179,28 @@ input {
 
 .grid {
     display: grid;
-    /* gap: 1.25rem; */
+    gap: 1.25rem;
 }
 
 .section {
-    /* padding: 4.5rem 0 1rem; */
+    margin-bottom: 2rem;
 }
 
 .section__title,
 .section__subtitle {
-    text-align: center;
+    /* text-align: center; */
 }
 
 .section__title {
-    font-size: var(--h2-font-size);
+    /* font-size: var(--h2-font-size);
     color: var(--first-color);
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; */
 }
 
 .section__subtitle {
-    display: block;
+    /* display: block;
     font-size: var(--smaller-font-size);
-    color: var(--text-color-light);
+    color: var(--text-color-light); */
 }
 
 /* =============== HEADER AND NAVBAR =============== */
@@ -251,18 +251,18 @@ input {
     color: var(--title-color);
 }
 
-.navbar ul {
+.navbar .nav__list {
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.navbar ul li {
+.navbar .nav__list .nav__item {
     margin: inline-block;
 }
 
-.navbar ul li a {
+.navbar .nav__list .nav__item .nav__link {
     position: relative;
     margin: 0 1.25rem;
     font-size: 1.8rem;
@@ -270,7 +270,7 @@ input {
     /* text-transform: uppercase; */
 }
 
-.navbar ul li a::before {
+.navbar .nav__list .nav__item .nav__link::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -282,13 +282,13 @@ input {
     color: var(--first-color);
 }
 
-.navbar ul li a:hover {
+.navbar .nav__list .nav__item .nav__link:hover {
     color: var(--first-color);
     transition: all 0.6s;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .header .navbar ul li a:hover::before {
+    .header .navbar .nav__list .nav__item .nav__link:hover::before {
         left: 0;
         right: auto;
         width: 100%;
@@ -396,13 +396,11 @@ input:checked+.slider:before {
 
 /* =============== MAIN =============== */
 .main {
-    /* overflow-x: hidden; */
+    /*  */
 }
 
 /* =============== HOME =============== */
 .home {
-    height: 100%;
-    min-width: 100vw;
     background: url(../img/lol4.jpg) no-repeat;
     background-color: rgba(0, 0, 0, 0.16);
     background-size: cover;
@@ -410,26 +408,25 @@ input:checked+.slider:before {
 }
 
 .home__container {
-    display: relative;
     padding: 15rem 12rem;
 }
 
-.home__data {}
+.home__data {
+    /*  */
+}
 
-.home__data h1 {
+.home__data .home__title {
     font-size: 8rem;
 }
 
-.home__data p {
-    font-size: 3rem;
+.home__data .home__title .blast {
+    text-transform: none !important;
 }
 
-
-.home__greeting {}
-
-.home__name {}
-
-.home__job {}
+.home__data .home__subtitle {
+    padding-top: 1rem;
+    font-size: 3rem;
+}
 
 /* =============== ABUUT =============== */
 .about {
@@ -499,7 +496,6 @@ input:checked+.slider:before {
     } */
 
     .home__container {
-        display: relative;
         padding: 15rem 10rem;
     }
 
@@ -507,10 +503,6 @@ input:checked+.slider:before {
 }
 
 @media screen and (max-width: 768px) {
-    /* .header {
-        transition: .6s;
-    } */
-
     .nav__logo {
         padding: 0;
     }
@@ -539,11 +531,11 @@ input:checked+.slider:before {
         border-radius: 0;
     }
 
-    .navbar ul {
+    .navbar .nav__list {
         flex-direction: column;
     }
 
-    .navbar ul li a {
+    .navbar .nav__list .nav__item .nav__link {
         display: block;
         margin: 1.5rem;
         padding: .5rem;
@@ -590,15 +582,14 @@ input:checked+.slider:before {
     }
 
     .home__container {
-        display: relative;
         padding: 15rem 5rem;
     }
 
-    .home__data h1 {
+    .home__data .home__title {
         font-size: 7rem;
     }
 
-    .home__data p {
+    .home__data .home__subtitle {
         font-size: 2.5rem;
     }
 
@@ -613,7 +604,7 @@ input:checked+.slider:before {
         font-size: 4.5rem;
     }
 
-    .home .content p {
+    .home .content .home__subtitle {
         font-size: 1.5rem;
     } */
 
@@ -625,11 +616,11 @@ input:checked+.slider:before {
         padding: 15rem 3rem;
     }
 
-    .home__data h1 {
-        font-size: 5rem;
+    .home__data .home__title {
+        font-size: 4.8rem;
     }
 
-    .home__data p {
+    .home__data .home__subtitle {
         font-size: 1.8rem;
     }
 }
@@ -640,21 +631,21 @@ input:checked+.slider:before {
         padding: 15rem 2.2rem;
     }
 
-    .home__data h1 {
+    .home__data .home__title {
         font-size: 4rem;
     }
 
-    .home__data p {
+    .home__data .home__subtitle {
         font-size: 1.4rem;
     }
 }
 
 @media screen and (max-width: 300px) {
-    .home__data h1 {
-        font-size: 2.7rem;
+    .home__data .home__title {
+        font-size: 2.6rem;
     }
 
-    .home__data p {
+    .home__data .home__subtitle {
         font-size: 1.1rem;
     }
 }
@@ -669,10 +660,11 @@ input:checked+.slider:before {
         padding: 15rem 0.5rem;
     }
 
-    .home__data h1 {
+    .home__data .home__title {
         font-size: 2rem;
     }
-    .home__data p {
+
+    .home__data .home__subtitle {
         font-size: .813rem;
     }
 }

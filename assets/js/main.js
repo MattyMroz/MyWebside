@@ -3,7 +3,7 @@ $(function () {
     var $html = $('html');
     var $header = $('.header');
     var $navbar = $('.navbar');
-    var $navLink = $('.nav__link');
+    var $navLink = $('.link');
     var $burger = $('.burger');
     var $bar1 = $('.burger-svg__bar-1');
     var $bar2 = $('.burger-svg__bar-2');
