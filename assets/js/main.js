@@ -1,6 +1,6 @@
 // =============== NAVBAR, NAVLIKNS, BURGER MENU AND SCROLL ===============
 $(function () {
-    var $html = $('html');
+    var $body = $('body');
     var $header = $('.header');
     var $navbar = $('.navbar');
     var $navLink = $('.link');
@@ -158,11 +158,11 @@ $(function () {
             if (!isOpen) {
                 showCloseBurger();
                 $navbar.addClass('active');
-                $html.addClass('no__scroll');
+                $body.addClass('no__scroll');
             } else {
                 showOpenBurger();
                 $navbar.removeClass('active');
-                $html.removeClass('no__scroll');
+                $body.removeClass('no__scroll');
             }
         }
 
@@ -176,7 +176,7 @@ $(function () {
                 if (isOpen) {
                     showOpenBurger();
                     $navbar.removeClass('active');
-                    $html.removeClass('no__scroll');
+                    $body.removeClass('no__scroll');
                 }
             }
         }
@@ -188,7 +188,7 @@ $(function () {
             isChangingState = true;
             showOpenBurger();
             $navbar.removeClass('active');
-            $html.removeClass('no__scroll');
+            $body.removeClass('no__scroll');
         }
     });
 
@@ -223,20 +223,39 @@ $(function () {
 
 // =============== DARKMODE ===============
 $(function () {
-    var $html = document.documentElement;
+    var $body = $('body');
     var $toogleBtn = $('.toggle__btn');
-    var $currentTheme = localStorage.getItem('dark__mod');
-    if ($currentTheme) {
-        $html.classList.add($currentTheme);
+    var $currentTheme = localStorage.getItem('dark__mode');
+
+    if ($currentTheme == 'dark__mode') {
+        $body.addClass('dark__mode');
     }
-    $toogleBtn.on('click', function (e) {
-        $html.classList.toggle('dark__mode');
-        if ($html.classList.contains('dark__mode')) {
-            localStorage.setItem('dark__mod', 'dark__mode');
+
+    $toogleBtn.on('click', function () {
+        if ($body.hasClass('dark__mode')) {
+            $body.removeClass('dark__mode');
+            localStorage.setItem('dark__mode', 'light');
         } else {
-            localStorage.setItem('dark__mod', 'light__mode');
+            $body.addClass('dark__mode');
+            localStorage.setItem('dark__mode', 'dark');
         }
     });
+
+
+    // var $body = $('body');
+    // var $toogleBtn = $('.toggle__btn');
+    // var $currentTheme = localStorage.getItem('dark__mod');
+    // if ($currentTheme) {
+    //     $body.classList.add($currentTheme);
+    // }
+    // $toogleBtn.on('click', function (e) {
+    //     $body.classList.toggle('dark__mode');
+    //     if ($body.classList.contains('dark__mode')) {
+    //         localStorage.setItem('dark__mod', 'dark__mode');
+    //     } else {
+    //         localStorage.setItem('dark__mod', 'light__mode');
+    //     }
+    // });
 });
 
 

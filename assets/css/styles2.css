@@ -20,7 +20,6 @@
     src: local('MyriadWebPro-CondensedItalic'), url('../fonts/MyriadWebPro-CondensedItalic.woff') format('woff');
 }
 
-
 /* =============== VARIABLES CSS =============== */
 :root {
     /* =============== LIGHT MODE =============== */
@@ -76,30 +75,9 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
-    /* scroll-padding-top: 60px;
-    scroll-behavior: smooth; */
 }
 
-/* =============== DARK MODE =============== */
-html.dark__mode {
-    --first-color: hsl(253, 65%, 52%);
-    --first-color-alt: hsl(253, 69%, 28%);
-
-    --secound-color: hsl(219, 100%, 50%);
-    --secound-color-alt: hsl(219, 100%, 33%);
-
-    --title-color: hsl(0, 0%, 100%);
-    --text-color: hsl(0, 0%, 100%);
-    --text-color-alt: hsl(0, 0%, 56%);
-
-    --body-color: hsl(0, 0%, 0%);
-    --container-color: hsl(0, 0%, 0%);
-
-    --border-color: .1rem solid rgba(95, 95, 95, 0.3);
-
-}
-
-/* =============== SCROLLBAR =============== */
+/* =============== HTML AND SCROLLBAR =============== */
 html::-webkit-scrollbar {
     width: .8rem;
 }
@@ -126,6 +104,106 @@ body {
     font-size: var(--normal-font-size);
 }
 
+/* =============== DARK MODE =============== */
+body.dark__mode {
+    --first-color: hsl(253, 65%, 52%);
+    --first-color-alt: hsl(253, 69%, 28%);
+
+    --secound-color: hsl(219, 100%, 50%);
+    --secound-color-alt: hsl(219, 100%, 33%);
+
+    --title-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-alt: hsl(0, 0%, 56%);
+
+    --body-color: hsl(0, 0%, 0%);
+    --container-color: hsl(0, 0%, 0%);
+
+    --border-color: .1rem solid rgba(95, 95, 95, 0.3);
+}
+
+/* =============== BASE =============== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--title-color);
+    font-family: var(--bold-font);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--first-color);
+    transition: all 0.3s;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input {
+    border: none;
+    font-family: var(--normal-font);
+    font-size: var(--normal-font-size);
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section__title,
+.section__subtitle {
+    /* text-align: center; */
+}
+
+.section__title {
+    /* font-size: var(--h2-font-size);
+    color: var(--first-color);
+    margin-bottom: 2rem; */
+}
+
+.section__subtitle {
+    /* display: block;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light); */
+}
+
 /* =============== HEADER AND NAVBAR =============== */
 .header {
     background: transparent;
@@ -135,6 +213,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 9999;
 }
 
 .header__scroll {
@@ -162,11 +241,6 @@ body {
     margin: auto;
 }
 
-.container {
-    max-width: 1200px;
-}
-
-
 .nav__logo {
     width: 15rem;
     z-index: 9999;
@@ -178,26 +252,26 @@ body {
     color: var(--title-color);
 }
 
-.navbar ul {
+.navbar .nav__list {
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.navbar ul li {
+.navbar .nav__list .nav__item {
     margin: inline-block;
 }
 
-.navbar ul li a {
+.navbar .nav__list .nav__item .nav__link {
     position: relative;
     margin: 0 1.25rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--text-color);
     /* text-transform: uppercase; */
 }
 
-.navbar ul li a::before {
+.navbar .nav__list .nav__item .nav__link::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -209,13 +283,13 @@ body {
     color: var(--first-color);
 }
 
-.navbar ul li a:hover {
+.navbar .nav__list .nav__item .nav__link:hover {
     color: var(--first-color);
     transition: all 0.6s;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .header .navbar ul li a:hover::before {
+    .header .navbar .nav__list .nav__item .nav__link:hover::before {
         left: 0;
         right: auto;
         width: 100%;
@@ -320,75 +394,66 @@ input:checked+.slider:before {
     display: none;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--title-color);
-    font-family: var(--bold-font);
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* ul {
-
-}
-
-a {
-
-}
-
-img,
-video {
-    max-width: 100%;
-    height: auto;
-}
-
-button,
-input {
-    border: none;
-    font-family: var(--normal-font);
-    font-size: var(--normal-font-size);
-}
-
-button {
-    cursor: pointer;
-}
-
-input {
-    outline: none;
-}
-
+/* =============== MAIN =============== */
 .main {
-    overflow-x: hidden;
-} */
-
-/* .home{
-    scroll-margin-top: 60px;
+    /*  */
 }
 
-.about{
-    scroll-margin-top: 60px;
+/* =============== HOME =============== */
+.home {
+    background: url(../img/lol4.jpg) no-repeat;
+    background-color: rgba(0, 0, 0, 0.16);
+    background-size: cover;
+    background-position: center;
 }
 
-.portfolio{
-    scroll-margin-top: 60px;
+.home__container {
+    padding: 15rem 12rem;
 }
 
-.blog{
-    scroll-margin-top: 60px;
+.home__data {
+    /*  */
 }
 
-.contact{
-    scroll-margin-top: 60px;
-} */
+.home__data .home__title {
+    font-size: 8rem;
+}
+
+.home__data .home__title .blast {
+    text-transform: none !important;
+}
+
+.home__data .home__subtitle {
+    padding-top: 1rem;
+    font-size: 3rem;
+}
+
+/* =============== ABUUT =============== */
+.about {
+    /* overflow-x: hidden; */
+}
+
+/* =============== PORTFOLIO =============== */
+.portfolio {
+    /* overflow-x: hidden; */
+}
+
+/* =============== BLOG =============== */
+.blog {
+    /* overflow-x: hidden; */
+}
+
+/* =============== CONTACT =============== */
+.contact {
+    /* overflow-x: hidden; */
+}
+
+/* =============== FOOTER =============== */
+.footer {
+    /* overflow-x: hidden; */
+}
+
 
 
 /* =============== BREAKPOINTS =============== */
@@ -412,7 +477,7 @@ input {
     }
 
     .nav {
-        padding: 0 2rem;
+        padding: 0 2rem 0 2.2rem;
     }
 
     .navbar {
@@ -431,13 +496,14 @@ input {
         padding: 2rem;
     } */
 
+    .home__container {
+        padding: 15rem 10rem;
+    }
+
+
 }
 
 @media screen and (max-width: 768px) {
-    /* .header {
-        transition: .6s;
-    } */
-
     .nav__logo {
         padding: 0;
     }
@@ -459,7 +525,6 @@ input {
         overflow: auto;
         float: left;
         transition: .6s;
-
     }
 
     .navbar.active {
@@ -467,16 +532,15 @@ input {
         border-radius: 0;
     }
 
-    .navbar ul {
+    .navbar .nav__list {
         flex-direction: column;
     }
 
-    .navbar ul li a {
+    .navbar .nav__list .nav__item .nav__link {
         display: block;
         margin: 1.5rem;
         padding: .5rem;
         font-size: var(--biggest-font-size);
-        /* lol */
     }
 
     .btns__1 {
@@ -489,8 +553,45 @@ input {
         display: none;
     }
 
+    .switch {
+        width: 5rem;
+        height: 2.825rem;
+    }
+
+    .slider {
+        border-radius: 2.825;
+        transition: .4s;
+    }
+
+    .slider:before {
+        height: 2.1625rem;
+        width: 2.1625rem;
+        left: .325rem;
+        bottom: .325rem;
+    }
+
+    input:checked+.slider {
+        background: var(--first-color);
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(2.1625rem);
+    }
+
     .burger {
         display: inline-block;
+    }
+
+    .home__container {
+        padding: 15rem 5rem;
+    }
+
+    .home__data .home__title {
+        font-size: 7rem;
+    }
+
+    .home__data .home__subtitle {
+        font-size: 2.5rem;
     }
 
 
@@ -504,14 +605,67 @@ input {
         font-size: 4.5rem;
     }
 
-    .home .content p {
+    .home .content .home__subtitle {
         font-size: 1.5rem;
     } */
 
 }
 
+@media screen and (max-width: 576px) {
+    .home__container {
+        display: relative;
+        padding: 15rem 3rem;
+    }
+
+    .home__data .home__title {
+        font-size: 4.8rem;
+    }
+
+    .home__data .home__subtitle {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .home__container {
+        display: relative;
+        padding: 15rem 2.2rem;
+    }
+
+    .home__data .home__title {
+        font-size: 4rem;
+    }
+
+    .home__data .home__subtitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .home__data .home__title {
+        font-size: 2.6rem;
+    }
+
+    .home__data .home__subtitle {
+        font-size: 1.1rem;
+    }
+}
+
 @media screen and (max-width: 210px) {
     .nav {
         padding: 0 0 0 0.5rem;
+    }
+
+    .home__container {
+        display: relative;
+        padding: 15rem 0.5rem;
+    }
+
+    .home__data .home__title {
+        font-size: 2rem;
+    }
+
+    .home__data .home__subtitle {
+        font-size: .813rem;
     }
 }
