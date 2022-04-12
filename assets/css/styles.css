@@ -77,6 +77,7 @@
 html {
     /* 10px */
     font-size: 62.5%;
+    -webkit-text-size-adjust: 100%; /* Zapobieganie skalowaniu czcionek w orientacji poziomej przy jednoczesnym umożliwieniu powiększania przez użytkownika */
 }
 
 /* =============== BASE BODY =============== */
@@ -417,7 +418,7 @@ input:checked+.slider:before {
 
 /* =============== HOME =============== */
 .home {
-    background: url(../img/lol4.jpg) no-repeat;
+    /* background: url(../img/lol4.jpg) no-repeat; */
     background-size: cover;
     background-position: center;
 }
