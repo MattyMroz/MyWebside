@@ -18,9 +18,9 @@ $(function () {
             burgerTL.clear();
             if (!isOpen) {
                 burgerTL.to($bar1, 0.5, {
-                        y: -2,
-                        ease: Elastic.easeOut
-                    })
+                    y: -2,
+                    ease: Elastic.easeOut
+                })
                     .to($bar2, 0.5, {
                         scaleX: 0.6,
                         ease: Elastic.easeOut,
@@ -32,9 +32,9 @@ $(function () {
                     }, "-=0.5");
             } else {
                 burgerTL.to($bar1, 0.5, {
-                        scaleX: 1.2,
-                        ease: Elastic.easeOut
-                    })
+                    scaleX: 1.2,
+                    ease: Elastic.easeOut
+                })
                     .to($bar3, 0.5, {
                         scaleX: 1.2,
                         ease: Elastic.easeOut
@@ -48,9 +48,9 @@ $(function () {
             burgerTL.clear();
             if (!isOpen) {
                 burgerTL.to($bar1, 0.5, {
-                        y: 0,
-                        ease: Elastic.easeOut
-                    })
+                    y: 0,
+                    ease: Elastic.easeOut
+                })
                     .to($bar2, 0.5, {
                         scaleX: 1,
                         ease: Elastic.easeOut,
@@ -62,9 +62,9 @@ $(function () {
                     }, "-=0.5");
             } else {
                 burgerTL.to($bar1, 0.5, {
-                        scaleX: 1,
-                        ease: Elastic.easeOut
-                    })
+                    scaleX: 1,
+                    ease: Elastic.easeOut
+                })
                     .to($bar3, 0.5, {
                         scaleX: 1,
                         ease: Elastic.easeOut
@@ -76,9 +76,9 @@ $(function () {
     function showCloseBurger() {
         burgerTL.clear();
         burgerTL.to($bar1, 0.3, {
-                y: 12, // move the bar up
-                ease: Power4.easeIn
-            })
+            y: 12, // move the bar up
+            ease: Power4.easeIn
+        })
             .to($bar2, 0.3, {
                 scaleX: 1,
                 ease: Power4.easeIn
@@ -110,9 +110,9 @@ $(function () {
     function showOpenBurger() {
         burgerTL.clear();
         burgerTL.to($bar1, 0.3, {
-                scaleX: 0,
-                ease: Back.easeIn
-            })
+            scaleX: 0,
+            ease: Back.easeIn
+        })
             .to($bar3, 0.3, {
                 scaleX: 0,
                 ease: Back.easeIn
@@ -227,20 +227,18 @@ $(function () {
     var $toogleBtn = $('.toggle__btn');
     var $currentTheme = localStorage.getItem('dark__mode');
 
-    if ($currentTheme == 'dark__mode') {
-        $body.addClass('dark__mode');
+    if ($currentTheme) {
+        $body.addClass($currentTheme);
     }
 
     $toogleBtn.on('click', function () {
+        $body.toggleClass('dark__mode');
         if ($body.hasClass('dark__mode')) {
-            $body.removeClass('dark__mode');
-            localStorage.setItem('dark__mode', 'light');
+            localStorage.setItem('dark__mode', 'dark__mode');
         } else {
-            $body.addClass('dark__mode');
-            localStorage.setItem('dark__mode', 'dark');
+            localStorage.removeItem('dark__mode');
         }
     });
-
 
     // var $body = $('body');
     // var $toogleBtn = $('.toggle__btn');
