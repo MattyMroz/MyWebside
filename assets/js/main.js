@@ -1,16 +1,15 @@
-// =============== NAVBAR, NAVLIKNS, BURGER MENU AND SCROLL ===============
 $(function () {
-    var $body = $('body');
-    var $header = $('.header');
-    var $navbar = $('.navbar');
-    var $navLink = $('.link');
-    var $burger = $('.burger');
-    var $bar1 = $('.burger-svg__bar-1');
-    var $bar2 = $('.burger-svg__bar-2');
-    var $bar3 = $('.burger-svg__bar-3');
-    var isChangingState = false;
-    var isOpen = false;
-    var burgerTL = new TimelineMax();
+    const $body = $('body');
+    const $header = $('.header');
+    const $navbar = $('.navbar');
+    const $navlink = $('.navlink');
+    const $burger = $('.burger');
+    const $bar1 = $('.burger-svg__bar-1');
+    const $bar2 = $('.burger-svg__bar-2');
+    const $bar3 = $('.burger-svg__bar-3');
+    let isChangingState = false;
+    let isOpen = false;
+    const burgerTL = new TimelineMax();
 
     // ========== Burger Animations ==========
     function burgerOver() {
@@ -151,7 +150,7 @@ $(function () {
     $burger.hover(burgerOver, burgerOut);
 
     // ========== Burger On Click ==========
-    $burger.on('click', function (e) {
+    $burger.click(function () {
         if (!isChangingState) {
             isChangingState = true;
 
@@ -169,7 +168,7 @@ $(function () {
     });
 
     // ========== NavLink On Click ==========
-    $navLink.on('click', function (e) {
+    $navlink.click(function () {
         if ($navbar.hasClass('active')) {
             if (!isChangingState) {
                 isChangingState = true;
@@ -183,7 +182,7 @@ $(function () {
     });
 
     // ========== Resize ==========
-    $(window).resize(function (e) {
+    $(window).resize(function () {
         if ($(window).width() != 0 && !isChangingState) {
             isChangingState = true;
             showOpenBurger();
@@ -192,69 +191,60 @@ $(function () {
         }
     });
 
-    // ========== Header Scroll Animation ==========
-    $(window).scroll(function () {
+    // ========== Header Width Functions ==========
+    function setHeaderWidth() {
         if ($(window).scrollTop() > 0) {
             $header.addClass('header__scroll');
         } else {
             $header.removeClass('header__scroll');
         }
+    }
+
+    // ========== Header Refresh ==========
+    $(window).scrollTop(function () {
+        setHeaderWidth();
+    });
+
+    // ========== Header Scroll ==========
+    $(window).scroll(function () {
+        setHeaderWidth();
     });
 
     // ========== Scroll To ==========
-    $navLink.on('click', function (e) {
+    $navlink.click(function (e) {
         e.preventDefault();
-        var $this = $(this);
-        var $target = $($this.attr('href'));
-        var targetOffset = $target.offset().top;
-        var headerHeight = $header.outerHeight();
-        var scrollTo = targetOffset - headerHeight;
+        const $target = $($(this).attr('href'));
+        const targetOffset = $target.offset().top;
+        const headerHeight = $header.outerHeight();
+        const scrollTo = targetOffset - headerHeight;
 
         $('html, body').animate({
             scrollTop: scrollTo
         }, 500);
     });
 
+    // =============== DARKMODE ===============
+    $(function () {
+        const $toogleBtn = $('.toggle__btn');
+        const $currentTheme = localStorage.getItem('dark__mode');
 
-    // ========== Scroll Trigger Animation scroll ==========
-
-
-});
-
-// =============== DARKMODE ===============
-$(function () {
-    var $body = $('body');
-    var $toogleBtn = $('.toggle__btn');
-    var $currentTheme = localStorage.getItem('dark__mode');
-
-    if ($currentTheme) {
-        $body.addClass($currentTheme);
-    }
-
-    $toogleBtn.on('click', function () {
-        $body.toggleClass('dark__mode');
-        if ($body.hasClass('dark__mode')) {
-            localStorage.setItem('dark__mode', 'dark__mode');
-        } else {
-            localStorage.removeItem('dark__mode');
+        if ($currentTheme) {
+            $body.addClass($currentTheme);
         }
+
+        $toogleBtn.click(function () {
+            $body.toggleClass('dark__mode');
+            if ($body.hasClass('dark__mode')) {
+                localStorage.setItem('dark__mode', 'dark__mode');
+            } else {
+                localStorage.removeItem('dark__mode');
+            }
+        });
     });
 
-    // var $body = $('body');
-    // var $toogleBtn = $('.toggle__btn');
-    // var $currentTheme = localStorage.getItem('dark__mod');
-    // if ($currentTheme) {
-    //     $body.classList.add($currentTheme);
-    // }
-    // $toogleBtn.on('click', function (e) {
-    //     $body.classList.toggle('dark__mode');
-    //     if ($body.classList.contains('dark__mode')) {
-    //         localStorage.setItem('dark__mod', 'dark__mode');
-    //     } else {
-    //         localStorage.setItem('dark__mod', 'light__mode');
-    //     }
-    // });
+
 });
+
 
 
 
