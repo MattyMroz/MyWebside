@@ -215,8 +215,16 @@ $(function () {
         e.preventDefault();
         const $target = $($(this).attr('href'));
         const targetOffset = $target.offset().top;
-        const headerHeight = $header.outerHeight();
+        // const headerHeight = $header.outerHeight();
+        let headerHeight;
+
+        if (window.innerWidth > 992) {
+            headerHeight = 60;
+        } else {
+            headerHeight = 52.8;
+        }
         const scrollTo = targetOffset - headerHeight;
+
 
         $('html, body').animate({
             scrollTop: scrollTo
@@ -241,6 +249,30 @@ $(function () {
             }
         });
     });
+
+
+    // =============== RUBBER BAND ANIMATION ===============
+
+    $(function () {
+        const $blast = $(".blast");
+
+        $blast.on("mouseenter", function (e) {
+            $(this).addClass("active__blast");
+            $(this).one("animationend", function () {
+                $(this).removeClass("active__blast");
+            });
+        });
+
+    });
+
+
+
+
+
+
+    // przy najechaniu myszą odpali sie animacja
+
+
 
 
 });
