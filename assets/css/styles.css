@@ -115,7 +115,7 @@ body.dark__mode {
     --body-color: hsl(0, 0%, 0%);
     --container-color: hsl(0, 0%, 0%);
 
-    --shadow-color: rgba(255, 255, 255, 0.073);
+    --shadow-color: rgba(255, 255, 255, 0.1);
 }
 
 /* =============== SCROLLBAR =============== */
@@ -249,7 +249,7 @@ textarea {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 5.5rem;
+    height: 6.5rem;
     /* transition: .2s linear; */
     z-index: 9999;
 }
@@ -262,7 +262,7 @@ textarea {
     -webkit-backdrop-filter: blur(5px); */
 
     box-shadow: 0 4px 30px var(--shadow-color);
-    height: 6rem;
+    /* height: 6.5rem; */
 }
 
 .nav {
@@ -434,6 +434,15 @@ input:checked+.slider:before {
 
 
 /* =============== MAIN =============== */
+
+#canvas {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    /* z-index: -1; */
+    /* background-color: red; */
+}
+
 .main {
     /*  */
 }
@@ -447,7 +456,6 @@ input:checked+.slider:before {
 
 .home__container {
     padding: 15rem 4rem;
-
 }
 
 .home__title {
@@ -458,9 +466,19 @@ input:checked+.slider:before {
 .home__title .blast {
     text-transform: none !important;
     display: inline-block;
-    background-clip: none;
-    -webkit-background-clip: none;
-    -webkit-text-fill-color: none;
+
+    position: relative;
+}
+
+.home__subtitle {
+    position: relative;
+}
+
+.blast:hover {
+    background: -webkit-linear-gradient(var(--first-color) 0%, var(--first-color-alt) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .blast.active__blast {
