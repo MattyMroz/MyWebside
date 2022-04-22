@@ -25,12 +25,13 @@
     /* =============== LIGHT MODE =============== */
     --first-color: #304ffe;
     --first-color-alt: #7b29ff;
+    --second-color: #6f4fff;
 
     /* --first-color: hsl(253, 100%, 62%);
     --first-color-alt: hsl(253, 69%, 28%); */
 
-    --title-color: hsl(0, 0%, 0%);
-    --text-color: hsl(0, 0%, 0%);
+    --title-color: hsl(0, 0%, 11%);
+    --text-color: hsl(0, 0%, 11%);
     --text-color-alt: hsl(0, 0%, 15%);
 
     --body-color: hsl(0, 18%, 91%);
@@ -460,13 +461,24 @@ input:checked+.slider:before {
 .home {
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    /* align-items: center; */
     /* padding: 0 1rem; */
 }
 
 .home__container {
-    padding: 15rem 4rem;
+    padding: 20rem 4rem;
 }
+
+/* .home__data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 4rem;
+} */
 
 .home__title {
     font-size: var(--title-font-size);
@@ -487,7 +499,7 @@ input:checked+.slider:before {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    color: var(--first-color-alt);
+    color: var(--second-color);
     transition: all 0.2s;
 }
 
@@ -537,7 +549,7 @@ input:checked+.slider:before {
 
 /* =============== BUTTONS =============== */
 .home__buttons {
-    /* z-index: var(--z1000); */
+    /*  */
 }
 
 
@@ -548,12 +560,12 @@ input:checked+.slider:before {
     position: relative;
 
     box-shadow: 0 1rem 2rem rgba(123, 41, 255, 0.2);
-    width: 20rem;
-    height: 4rem;
+    width: 24rem;
+    height: 5rem;
 
     text-align: center;
-    line-height: 4rem;
-    font-size: var(--normal-font-size);
+    line-height: 5rem;
+    font-size: calc(var(--subtitle-font-size) - .5rem);
     font-family: var(--bold-font);
     color: var(--text-color);
     transition: all 0.6s;
@@ -705,7 +717,7 @@ input:checked+.slider:before {
 @media screen and (max-width: 768px) {
     :root {
         --title-font-size: 8.5rem;
-        --subtitle-font-size: 2rem;
+        --subtitle-font-size: 2.3rem;
     }
 
     .nav {
@@ -795,6 +807,20 @@ input:checked+.slider:before {
         --title-font-size: 6.5rem;
         --subtitle-font-size: 1.8rem;
     }
+
+    .button__cta,
+    .button__ghost {
+        width: 18rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        font-size: 1.5rem;
+    }
+
+    .button__ghost::after {
+        border-style: solid;
+        border-width: 1px;
+    }
+
 }
 
 
@@ -803,19 +829,36 @@ input:checked+.slider:before {
         --title-font-size: 5.4rem;
         --subtitle-font-size: 1.4rem;
     }
+
+    .button__cta,
+    .button__ghost {
+        width: 17rem;
+        height: 3.25rem;
+        line-height: 3.25rem;
+        font-size: 1.4rem;
+    }
+
 }
 
 @media screen and (max-width: 390px) {
     :root {
-        --title-font-size: 4.5rem;
+        --title-font-size: 4.4rem;
         --subtitle-font-size: 1.3rem;
+    }
+
+    .button__cta,
+    .button__ghost {
+        width: 15rem;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 1.2rem;
     }
 }
 
 
 @media screen and (max-width: 320px) {
     :root {
-        --title-font-size: 3.4rem;
+        --title-font-size: 4rem;
     }
 
     .nav {
@@ -824,5 +867,10 @@ input:checked+.slider:before {
 
     .home__container {
         padding: 15rem 1rem;
+    }
+
+    .button__cta,
+    .button__ghost {
+        width: 12.5rem;
     }
 }
