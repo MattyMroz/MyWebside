@@ -23,9 +23,9 @@
 /* =============== VARIABLES CSS =============== */
 :root {
     /* =============== LIGHT MODE =============== */
-    --first-color: #304ffe;
-    --first-color-alt: #7b29ff;
-    --second-color: #6f4fff;
+    --first-color: #3f4efe;
+    --first-color-alt: #8b29ff;
+
 
     /* --first-color: hsl(253, 100%, 62%);
     --first-color-alt: hsl(253, 69%, 28%); */
@@ -107,6 +107,9 @@ body {
 
 /* =============== DARK MODE =============== */
 body.dark__mode {
+    /* --first-color: #2f4efe;
+    --first-color-alt: #7b29ff; */
+
     --first-color: #2f4efe;
     --first-color-alt: #7b29ff;
 
@@ -499,21 +502,20 @@ input:checked+.slider:before {
 }
 
 .blast:hover {
-    /* background: -webkit-linear-gradient(var(--first-color) 0%, var(--first-color-alt) 100%);
+    background: -webkit-linear-gradient(var(--first-color) 0%, var(--first-color-alt) 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    color: var(--second-color);
+    -webkit-text-fill-color: transparent;
+    /* color: var(--second-color); */
     transition: all 0.2s;
 }
 
 .blast.active__blast {
     animation: rubberBand .8s alternate ease-out;
-    /* color: #563CFF; */
-    /* background: -webkit-linear-gradient(var(--first-color) 0%, var(--first-color-alt) 100%);
+    background: -webkit-linear-gradient(var(--first-color) 0%, var(--first-color-alt) 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -566,7 +568,7 @@ input:checked+.slider:before {
     box-shadow: 0 1rem 2rem rgba(123, 41, 255, 0.2);
     width: 25rem;
     height: 4.5rem;
-    line-height: 4.5rem;
+    line-height: 4.6rem;
 
     text-align: center;
 
@@ -574,7 +576,7 @@ input:checked+.slider:before {
     font-family: var(--bold-font);
     color: var(--text-color);
     transition: all 0.6s;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .button__cta::before,
@@ -819,6 +821,11 @@ input:checked+.slider:before {
         width: 20rem;
     }
 
+    
+    .home__buttons{
+        display: inline;
+    }
+
     .button__ghost::after {
         border-style: solid;
         border-width: 1px;
@@ -833,11 +840,10 @@ input:checked+.slider:before {
         /* --subtitle-font-size: 1.4rem; */
     }
 
-    .button__cta,
+    /* .button__cta,
     .button__ghost {
         width: 17rem;
-        /* font-size: 1.4rem; */
-    }
+    } */
 
 }
 
@@ -854,11 +860,11 @@ input:checked+.slider:before {
         align-items: center;
     } */
 
-    .button__cta,
+    /* .button__cta,
     .button__ghost {
         width: 14.6rem;
         font-size: 1.8rem;
-    }
+    } */
 }
 
 
@@ -875,8 +881,8 @@ input:checked+.slider:before {
         padding: 15rem 1rem;
     } */
 
-    .button__cta,
+    /* .button__cta,
     .button__ghost {
         width: 13.2rem;
-    }
+    } */
 }

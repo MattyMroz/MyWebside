@@ -274,6 +274,7 @@ $(function () {
         $canvas.height = window.innerHeight;
         const $particlesArray = [];
         let $hue = 0;
+        let $lol = 0;
 
         const $particleCount = 3; // small is good
         const $particleSize = 16;
@@ -377,6 +378,7 @@ $(function () {
 
             // szybkośc zmiany koloru
             $hue++;
+            $lol++;
 
             handleParticle();
             requestAnimationFrame(animate);
