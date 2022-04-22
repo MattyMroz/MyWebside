@@ -43,8 +43,8 @@
     --italic-font: 'MyriadWebPro-CondensedItalic', sans-serif;
 
     /* ========== FONTS SIZES ========== */
-    --title-font-size: 8rem;
-    --subtitle-font-size: 2.4rem;
+    --title-font-size: 10rem;
+    --subtitle-font-size: 2.5rem;
 
     --h1-font-size: 3.2rem;
     --h2-font-size: 2.4rem;
@@ -470,7 +470,7 @@ input:checked+.slider:before {
 
 .home__title {
     font-size: var(--title-font-size);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .home__title .blast {
@@ -704,7 +704,7 @@ input:checked+.slider:before {
 
 @media screen and (max-width: 768px) {
     :root {
-        --title-font-size: 7rem;
+        --title-font-size: 8.5rem;
         --subtitle-font-size: 2rem;
     }
 
@@ -792,24 +792,30 @@ input:checked+.slider:before {
 
 @media screen and (max-width: 576px) {
     :root {
-        --title-font-size: 6rem;
-        --subtitle-font-size: 1.6rem;
+        --title-font-size: 6.5rem;
+        --subtitle-font-size: 1.8rem;
     }
 }
 
 
 @media screen and (max-width: 460px) {
     :root {
-        --title-font-size: 4.2rem;
+        --title-font-size: 5.4rem;
         --subtitle-font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    :root {
+        --title-font-size: 4.5rem;
+        --subtitle-font-size: 1.3rem;
     }
 }
 
 
 @media screen and (max-width: 320px) {
     :root {
-        --title-font-size: 3rem;
-        --subtitle-font-size: 1.2rem;
+        --title-font-size: 3.4rem;
     }
 
     .nav {
