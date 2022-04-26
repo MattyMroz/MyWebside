@@ -474,7 +474,7 @@ input:checked+.slider:before {
 }
 
 .home__container {
-    padding: 17rem 4rem;
+    padding: 30vh 4rem;
 }
 
 .home__data {
@@ -641,7 +641,7 @@ input:checked+.slider:before {
 
 .home__scroll__down {
     position: absolute;
-    left: 1rem;
+    left: .5rem;
     bottom: 2rem;
     font-size: var(--normal-font-size);
     display: flex;
@@ -655,7 +655,7 @@ input:checked+.slider:before {
 }
 
 .scroll__down-right{
-    right: 1rem;
+    right: .5rem;
     left: auto;
 }
 
@@ -824,7 +824,7 @@ input:checked+.slider:before {
     }
 
     .home__container {
-        padding: 20rem 3rem;
+        padding: 30vh 3rem;
     }
 }
 
