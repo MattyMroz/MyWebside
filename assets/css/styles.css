@@ -644,6 +644,7 @@ input:checked+.slider:before {
     left: 1rem;
     bottom: 2rem;
     font-size: var(--normal-font-size);
+    display: flex;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     -webkit-writing-mode: vertical-rl;
