@@ -254,7 +254,7 @@ $(function () {
     $(function () {
         const $blast = $(".blast");
 
-        $blast.on("mouseenter", function (e) {
+        $blast.mouseenter(function () {
             $(this).addClass("active__blast");
             $(this).one("animationend", function () {
                 $(this).removeClass("active__blast");
