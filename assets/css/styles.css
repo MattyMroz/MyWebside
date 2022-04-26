@@ -637,36 +637,7 @@ input:checked+.slider:before {
     }
 }
 
-
-/* =============== SOCIALS =============== */
-.home__social {
-    /*  */
-}
-
-/*  */
-
-
-
-
 /* =============== SCROLL DOWN ELEMENT =============== */
-/* .home__scroll__down {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    right: 2rem;
-    bottom: 2rem;
-
-    z-index: var(--z-100);
-}
-
-.scroll__down {
-    font-size: var(--h3-font-size);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-}
-
- */
 
 .home__scroll__down {
     position: absolute;
@@ -675,6 +646,9 @@ input:checked+.slider:before {
     font-size: var(--normal-font-size);
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    -webkit-writing-mode: vertical-rl;
+    -webkit-text-orientation: mixed;
+
     z-index: var(--z-100);
     animation: scrollDown 1s ease-in-out infinite;
 }
