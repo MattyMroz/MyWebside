@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
     const $body = $('body');
     const $header = $('.header');
     const $navbar = $('.navbar');
@@ -385,136 +385,39 @@ $(function () {
         }
         animate();
     });
+
+
+
+
+
+
+
+
+
+
+
+    $("#slideshow > div:gt(0)").hide();
+
+    setInterval(function () {
+        $('#slideshow > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshow');
+    }, 3000);
+
+
+
+
+
+
 });
 
 
 
- // $(function () {
-    //     const canvas = document.getElementById('canvas');
-    //     const main = document.querySelector('.main');
-    //     const ctx = canvas.getContext('2d');
-    //     canvas.width = window.innerWidth;
-    //     canvas.height = window.innerHeight;
-    //     const particlesArray = [];
-    //     let hue = 0;
 
-    //     const particleCount = 3; // small is good
-    //     const particleSize = 16;
-    //     const particleLineLength = 1;
 
-    //     const speedX = 3;
-    //     const halfSpeedX = speedX / 2;
-    //     const speedY = 3;
-    //     const halfSpeedY = speedX / 2;
-
-    //     window.addEventListener('resize', function () {
-    //         canvas.width = window.innerWidth;
-    //         canvas.height = window.innerHeight;
-    //     });
-
-    //     const mouse = {
-    //         x: undefined,
-    //         y: undefined
-    //     }
-
-    //     function ClickOrMove(event) {
-    //         mouse.x = event.x;
-    //         mouse.y = event.y;
-    //         // ilosć kulek
-    //         for (let i = 0; i < particleCount; i++) {
-    //             let particle = new Particle(mouse.x, mouse.y);
-    //             particlesArray.push(particle);
-    //         }
-    //     }
-
-    //     canvas.addEventListener('click', function (event) {
-    //         ClickOrMove(event);
-    //     });
-
-    //     canvas.addEventListener('mousemove', function (event) {
-    //         ClickOrMove(event);
-    //     });
-
-    //     main.addEventListener('click', function (event) {
-    //         ClickOrMove(event);
-    //     });
-
-    //     main.addEventListener('mousemove', function (event) {
-    //         ClickOrMove(event);
-    //     });
-
-    //     class Particle {
-    //         constructor() {
-    //             this.x = mouse.x;
-    //             this.y = mouse.y;
-    //             // wielkość kulek
-    //             this.size = Math.random() * particleSize + 1;
-    //             // szybkosć kulek
-    //             this.speedX = Math.random() * speedX - halfSpeedX;
-    //             this.speedY = Math.random() * speedY - halfSpeedY;
-    //             this.color = 'hsla(' + hue + ', 100%, 50%, 0.5)';
-    //         }
-
-    //         update() {
-    //             this.x += this.speedX;
-    //             this.y += this.speedY;
-    //             if (this.x > 0.2) {
-    //                 this.size -= 0.1;
-    //             }
-    //         }
-
-    //         draw() {
-    //             ctx.fillStyle = this.color;
-    //             ctx.beginPath();
-    //             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    //             ctx.fill();
-    //         }
-    //     }
-
-    //     function handleParticle() {
-    //         for (let i = 0; i < particlesArray.length; i++) {
-    //             particlesArray[i].update();
-    //             particlesArray[i].draw();
-
-    //             for (let j = i; j < particlesArray.length; j++) {
-    //                 const dx = particlesArray[i].x - particlesArray[j].x;
-    //                 const dy = particlesArray[i].y - particlesArray[j].y;
-    //                 const distance = Math.sqrt(dx * dx + dy * dy);
-    //                 if (distance < 100) {
-    //                     ctx.beginPath();
-    //                     ctx.strokeStyle = particlesArray[i].color;
-    //                     // grubość linii
-    //                     // ctx.lineWidth = particleLineLength;
-    //                     ctx.lineWidth = particlesArray[i].size / 10;
-    //                     ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-    //                     ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-    //                     ctx.stroke();
-    //                     ctx.closePath();
-    //                 }
-    //             }
-
-    //             if (particlesArray[i].size <= 0.3) {
-    //                 particlesArray.splice(i, 1);
-    //                 i--;
-    //             }
-    //         }
-    //     }
-
-    //     function animate() {
-    //         // rysowanie
-    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //         // ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
-    //         // ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    //         // szybkośc zmiany koloru
-    //         hue++;
-
-    //         handleParticle();
-    //         requestAnimationFrame(animate);
-    //     }
-    //     animate();
-
-    // });
 
 
 
