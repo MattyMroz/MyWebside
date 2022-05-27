@@ -138,6 +138,51 @@
         </section>
         <!-- =============== ABOUT =============== -->
         <section class="about section" id="about">
+            <div class="about__container container grid">
+
+                <h2 class="section__title" aria-label=" Hi, I'm Matty, Web Developer">
+                    <span class="blast">H</span><span class="blast">i</span><span class="blast">,</span>
+                    <br>
+                    <span class="blast">I</span><span class="blast">'</span><span class="blast">m</span>
+                    <span class="blast">M</span><span class="blast">a</span><span class="blast">t</span><span
+                        class="blast">t</span><span class="blast">y</span><span class="blast">,</span>
+                    <br>
+                    <span class="blast">W</span><span class="blast">e</span><span class="blast">b</span>
+                    <span class="blast">D</span><span class="blast">e</span><span class="blast">v</span><span
+                        class="blast">e</span><span class="blast">l</span><span class="blast">o</span><span
+                        class="blast">p</span><span class="blast">e</span><span class="blast">r</span>
+
+
+                    <!-- O -->
+                </h2>
+
+
+                <div id="slideshow">
+                    <div>
+                        <img src="https://picsum.photos/500/500">
+                    </div>
+                    <div>
+                        <img src="https://picsum.photos/id/237/500">
+                    </div>
+                    <div>
+                        <img src="https://picsum.photos/500/500">
+                    </div>
+                    <div>
+                        <img src="https://picsum.photos/id/237/500">
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </section>
+
+        <!-- =============== PORTFOLIO =============== -->
+        <section class="portfolio section" id="portfolio">
             <h1>Mateusz Mróz</h1>
             <h2>Mateusz Mróz</h2>
             <h3>Mateusz Mróz</h3>
@@ -161,93 +206,8 @@
                 repudiandae non praesentium autem dicta rem reprehenderit nisi optio inventore voluptatem. Ad, ex
                 adipisci!
             </p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br> <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </section>
 
-        <!-- =============== PORTFOLIO =============== -->
-        <section class="portfolio section" id="portfolio">
+
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti neque maxime placeat, eos quaerat
                 libero earum architecto in inventore veniam officiis dolore, consectetur repellat nostrum. Voluptatum
                 nisi
@@ -570,3 +530,81 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slideshow {
+            margin: 50px auto;
+            position: relative;
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+        }
+
+        #slideshow>div {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideshow">
+        <div>
+            <img src="https://picsum.photos/500/500">
+        </div>
+        <div>
+            <img src="https://picsum.photos/id/237/500">
+        </div>
+        <div>
+            Pretty cool eh? This slide is proof the content can be anything.
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+
+    <script>
+       $(document).ready(function() {
+
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function() {
+                $('#slideshow > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow');
+            }, 3000);
+        });
+
+    </script>
+</body>
+
+</html> -->
