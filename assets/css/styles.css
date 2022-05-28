@@ -188,6 +188,12 @@ h6 {
     font-size: var(--tiny-font-size);
 }
 
+p.normal__text {
+    font-size: var(--h3-font-size);
+    /* przerwy pomiędzy słowami */
+    line-height: 1.2;
+}
+
 a {
     text-decoration: none;
     color: var(--first-color);
@@ -254,6 +260,7 @@ textarea {
     -webkit-text-fill-color: transparent;
     text-transform: none;
     margin-bottom: var(--section-vertical-spacing);
+
 }
 
 .section__subtitle {
