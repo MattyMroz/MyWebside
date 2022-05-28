@@ -1,2 +1,2 @@
 # MyWebside
-[https://mattymroz.github.io/MyWebside/](MyWebside)
+[Tekst linku]([http://dev.nodeca.com](https://mattymroz.github.io/MyWebside/))
