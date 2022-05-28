@@ -386,29 +386,52 @@ $(document).ready(function () {
         animate();
     });
 
+    // ========== ABOUT SLIDHER JS AND JQUERY ==========
+    $(function () {
+        async function StartSlider() {
+            $('.slider__inner > div:gt(0)').hide();
+            interfal = setInterval(function () {
+                $('.slider__inner > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('.slider__inner');
 
+            }, 5000);
+        }
 
+        function StopSlider() {
+            clearInterval(interfal);
+        }
 
+        $(".prev__slider").on("click", function () {
+            setTimeout(function () {
+                $('.slider__inner > div:gt(0)').hide();
+                $('.slider__inner > div:first')
+                    .fadeOut(800);
 
+                $('.slider__inner > div:last')
+                    .fadeIn(800)
+                    .prependTo('.slider__inner');
+            }, 200);
+        });
 
+        $(".next__slider").on("click", function () {
+            setTimeout(function () {
+                $('.slider__inner > div:gt(0)').hide();
+                $('.slider__inner > div:first')
+                    .fadeOut(800)
+                    .next()
+                    .fadeIn(800)
+                    .end()
+                    .appendTo('.slider__inner');
+            }, 200);
+        });
 
-
-
-
-
-    $("#slideshow > div:gt(0)").hide();
-
-    setInterval(function () {
-        $('#slideshow > div:first')
-            .fadeOut(1000)
-            .next()
-            .fadeIn(1000)
-            .end()
-            .appendTo('#slideshow');
-    }, 3000);
-
-
-
+        $('.slider__outer').hover(StopSlider, StartSlider);
+        StartSlider();
+    });
 
 
 
